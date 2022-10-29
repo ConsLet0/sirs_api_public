@@ -1,0 +1,29 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+model Sirs {
+  @@map("tb_sirs")
+  id Int @id @default(autoincrement())
+  name String?
+  image String?
+  category String?
+  alamat String?
+  phone String?
+  akreditasi String?
+  bpjs Boolean?
+  kelas String?
+  tipe String?
+  direction String? @db.LongText
+  latitude Float?
+  longitude Float?
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
